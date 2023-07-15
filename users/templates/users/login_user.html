@@ -1,0 +1,18 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block user_head %}Sign in{% endblock user_head %}
+{% block user %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" value="Sign In" class="btn btn-success">
+</form>
+<div class="container">
+    <p>
+        If you don't have an account, 
+        <a href="{% url 'register' %}" style="text-decoration: none; color: red;">
+            Sign up
+        </a>
+    </p>
+</div>
+{% endblock user %}
